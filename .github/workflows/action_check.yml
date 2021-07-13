@@ -26,4 +26,6 @@ jobs:
         with:
           account: ${{ secrets.TEST_ACCOUNT }}
           project: ${{ secrets.TEST_PROJECT }}
+          email: ${{ secrets.TEST_EMAIL }}
+          global_token: ${{ secrets.TEST_TOKEN }}
 

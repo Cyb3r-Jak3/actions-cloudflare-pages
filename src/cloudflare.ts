@@ -35,7 +35,7 @@ export async function create_deployment(config: Config): Promise<void> {
     )
   }
   if (res.status !== 200) {
-    throw new Error(`Purge cache request did not get 200. ${res.data}`)
+    throw new Error(`Deployment request did not get 200. ${res.data}`)
   } else {
     core.info('Deployment has been created')
   }

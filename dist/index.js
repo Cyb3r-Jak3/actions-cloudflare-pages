@@ -72,7 +72,7 @@ function create_deployment(config) {
             throw new Error(`Error making purge request. ${error.message} ${JSON.stringify(error.response.data)}`);
         }
         if (res.status !== 200) {
-            throw new Error(`Purge cache request did not get 200. ${res.data}`);
+            throw new Error(`Deployment request did not get 200. ${res.data}`);
         }
         else {
             core.info('Deployment has been created');
