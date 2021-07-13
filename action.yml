@@ -2,7 +2,7 @@ name: 'Cloudflare Page Deploy'
 description: 'Github action to deploy project to Cloudflare pages'
 author: 'Cyb3r-Jak3'
 branding:
-  icon: 'zap'  
+  icon: 'server'  
   color: 'orange'
 inputs:
   account:
