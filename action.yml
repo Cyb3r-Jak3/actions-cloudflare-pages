@@ -1,0 +1,22 @@
+name: 'Cloudflare Page Deploy'
+description: 'Github action to deploy project to Cloudflare pages'
+author: 'Cyb3r-Jak3'
+branding:
+  icon: 'zap'  
+  color: 'orange'
+inputs:
+  account:
+    required: true
+    description: "The account ID your domain, which can be found in the right sidebar of your domain's overview page on the Cloudflare dashboard."
+  project:
+    required: true
+    description: 'Name of the project to deploy. The repo/account must have been authorized through the Pages UI dash before'
+  email:
+    description: "The email address you registered your Cloudflare account with."
+    required: true
+  global_token:
+    description: "Your Global Cloudflare API key."
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

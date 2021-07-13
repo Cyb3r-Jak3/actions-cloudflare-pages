@@ -1,0 +1,25 @@
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    assignees:
+      - "Cyb3r-Jak3"
+    commit-message:
+      prefix: "NPM Update"
+    reviewers:
+      - "Cyb3r-Jak3"
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "Cyb3r-Jak3"
+    commit-message:
+      prefix: "Action Update"
+    reviewers:
+      - "Cyb3r-Jak3"
