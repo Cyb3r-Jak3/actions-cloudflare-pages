@@ -37,7 +37,7 @@ jobs:
 
     # Put steps here to build, and check your site.
 
-    - name: Clear Cloudflare cache
+    - name: Cloudflare pages build
       uses: Cyb3r-Jak3/actions-cloudflare-pages@<Latest Release>
       with:
         account: ${{ secrets.CLOUDFLARE_ZONE }}
