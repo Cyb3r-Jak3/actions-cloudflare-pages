@@ -11,6 +11,7 @@ on:
     paths:
       - "**.ts"
       - ".github/workflows/typescript.yml"
+      - "package.json"
 
 jobs:
   test:
@@ -18,27 +19,30 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Download Cache
-        uses: actions/cache@v2
-        id: yarn-cache
+      - uses: actions/setup-node@v2
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            yarn-
+          node-version: '12'
+          cache: 'npm'
 
       - name: Install Packages
-        run: yarn install
+        run: npm install
 
       - name: Lint
-        run: yarn run lint
+        run: npm run lint
 
       - name: Check format
-        run: yarn run format-check
+        run: npm run format-check
 
       - name: Run tests
-        run: yarn run test
+        run: npm run test
+
+      - name: Rebuild the dist/ directory
+        run: npm run build
+
+      - name: Compare the expected and actual dist/ directories
+        run: |
+          if [ "$(git diff --ignore-space-at-eol dist/ | wc -l)" -gt "0" ]; then
+            echo "Detected uncommitted changes after build.  See status below:"
+            git diff
+            exit 1
+          fi
