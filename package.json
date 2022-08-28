@@ -28,7 +28,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.6",
+    "@actions/core": "^1.9.1",
     "axios": "^0.21.2",
     "bent": "^7.3.12",
     "yarn": "^1.22.10"
