@@ -9,6 +9,6 @@ test('Failed Token Check', async () => {
   let conf = config.create_config()
 
   expect(cloudflare.check_auth(conf)).rejects.toThrow(
-    'Error when checking token. Request failed with status code 400'
+    'Error when checking token. AxiosError: Request failed with status code 400'
   )
 })
