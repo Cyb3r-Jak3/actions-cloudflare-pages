@@ -1,8 +1,12 @@
 import * as config from '../src/config'
 
+
+
+describe('Config', () => {
+
 test('No Auth', async () => {
   expect(() => config.create_config()).toThrow(
-    'Need to have global_token with email set'
+    'Need to have either an api_token or global_token with email set'
   )
 })
 
@@ -26,4 +30,5 @@ test('Legacy Auth', async () => {
   )
   expect(conf.project_name).toEqual('test')
   expect(conf.account_id).toEqual('1')
+})
 })
