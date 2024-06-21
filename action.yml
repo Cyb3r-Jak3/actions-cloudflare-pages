@@ -13,10 +13,13 @@ inputs:
     description: 'Name of the project to deploy. The repo/account must have been authorized through the Pages UI dash before'
   email:
     description: "The email address you registered your Cloudflare account with."
-    required: true
+    required: false
   global_token:
     description: "Your Global Cloudflare API key."
-    required: true
+    required: false
+  api_token:
+    required: false
+    description: 'Cloudflare API token to use'
 runs:
-  using: 'node12'
+  using: 'node20'
   main: 'dist/index.js'

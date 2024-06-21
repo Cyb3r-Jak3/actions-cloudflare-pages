@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
-import {create_config} from './config'
 import * as cloudflare from './cloudflare'
+import {create_config} from './config'
 
 export async function run(): Promise<void> {
   try {
@@ -11,7 +11,7 @@ export async function run(): Promise<void> {
     core.endGroup()
     await cloudflare.create_deployment(config)
   } catch (error) {
-    core.setFailed(error.message)
+    if (error instanceof Error) core.setFailed(error.message)
   }
 }
 
